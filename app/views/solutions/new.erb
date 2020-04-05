@@ -1,0 +1,17 @@
+<h2>Submit a proposal</h2>
+<div data-alert class="alert">
+  <%=@problem_message%>
+  <a href="#" class="close">&times;</a>
+</div>
+<form action="/solutions/new" method="POST">
+    <h3><label name="solution[problem_title]">Proposal Title for problem: <%=@problem.title%></label></h3>
+    <input type="text" name="solution[title]">
+
+
+
+    <h3><label>Solution Proposal</label></h3>
+    <textarea name="solution[description]" rows="8" cols="80"></textarea>
+
+   <input type="hidden" name="solution[problem]" value=<%=@problem.id%>>
+   <input type="submit" value="Submit Proposal">
+</form>

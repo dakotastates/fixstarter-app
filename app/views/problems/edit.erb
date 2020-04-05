@@ -1,0 +1,33 @@
+<h2>Edit Problems<%=@problem.title%></h2>
+<div data-alert class="alert">
+  <%=@problem_message%>
+  <a href="#" class="close">&times;</a>
+</div>
+<form action="/problems/<%= @problem.id %>/edit" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <h3><label>Edit Problem Title</label></h3>
+    <input type="text" name="problem[title]" value="<%=@problem.title%>"><br>
+
+    <h3><label>Problem Description</label></h3>
+    <textarea name="problem[description]" rows="8" cols="80"><%=@problem.description%></textarea><br>
+
+    <h3><label>Problem Location</label></h3>
+    <input type="text" name="problem[location]" value="<%=@problem.location%>"><br>
+
+    <h3><label>Problem Category</label></h3>
+    <input type="text" name="problem[category]" value="<%=@problem.category%>"><br>
+
+    <h3><label>Problem Severity</label></h3>
+    <select name="problem[severity]" value="<%=@problem.severity%>">
+      <option value="critical">Critical</option>
+      <option value="severe">Severe</option>
+      <option value="moderate">Moderate</option>
+      <option value="low">Low</option>
+    </select><br>
+
+    <h3><label>Problem Tags</label></h3>
+    <input type="text" name="problem[tags]" value="<%=@problem.tags%>"><br>
+
+    <input type="submit" value="submit">
+</form>

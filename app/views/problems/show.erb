@@ -1,0 +1,38 @@
+<h1><%=@problem.title%><br><br></h1>
+
+<p>Problem Description: <%=@problem.description%></p>
+<p>Problem category: <%=@problem.category%></p>
+<p>Problem Severity: <%=@problem.severity%></p>
+<p>Problem Location: <%=@problem.location%></p>
+<p>Problem Status: <%=@problem.status%></p>
+<p>Problem tags: <%=@problem.tags%></p>
+<p>Problem Reported By: <%=@user.name%></p>
+
+<% if !@problem.solutions.empty? %>
+
+  <h2>Proposals for <%=@problem.title%>:</h2>
+
+  <ul>
+      <%@problem.solutions.each do |solution| %>
+      <li><a href="/solutions/<%= solution.id%>"><%= solution.name%></a></li>
+      <% end %>
+  </ul>
+<% else %>
+  <h2>There are no proposals for <%=@problem.title%> yet</h2>
+<% end %>
+
+<br>
+<h3>
+    <a href="/problems/<%=@problem.id%>/add_solution">Submit a Proposal</a> to <%=@problem.title%>.</h3>
+
+<% if @problem.user_id == current_user.id%>
+<h3>
+    <a href="/problems/<%=@problem.id%>/edit">Edit</a>
+    <br>
+    <a href="/problems/<%=@problem.id%>/delete">Delete</a>
+</h3>
+<% end %>
+
+<h3>Back to <a href="/">my dashboard</a></h3>
+
+<h3>Back to <a href="/problems">all problems</a></h3>

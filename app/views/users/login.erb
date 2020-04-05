@@ -1,0 +1,17 @@
+<h1>Login</h1>
+<div data-alert class="alert">
+  <%=@problem_message%>
+  <a href="#" class="close">&times;</a>
+</div>
+<form action="/login" method="post">
+  <h3><label>Username</label>
+  <input type="text" name="user[username]"></h3>
+
+  <h3><label>Password</label>
+  <input type="password" name="user[password]"></h3>
+
+  <input type="submit" value="Login">
+
+</form>
+
+<h3><a href="/signup">sign up</a>.</h3>

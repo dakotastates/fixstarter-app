@@ -1,0 +1,41 @@
+<h1>SignUp</h1>
+<div data-alert class="alert">
+  <%=@problem_message%>
+  <a href="#" class="close">&times;</a>
+</div>
+
+<form action="/signup" method="post">
+  <h3><label>Your Name</label>
+  <input type="text" name="user[name]"></h3>
+
+  <h3><label>Your username</label>
+  <input type="text" name="user[username]"></h3>
+
+  <h3><label>Your password</label>
+  <input type="password" name="user[password]"></h3>
+
+  <h3><label>Your Location</label>
+  <input type="text" name="user[location]"></h3>
+
+  <h3><label>Your Gender</label>
+  <select name="user[gender]" value="Gender">
+    <option> </option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+    <option value="undisclosed">Undisclosed</option>
+  </select></h3>
+
+  <h3><label>Your Occupation</label>
+  <input type="text" name="user[occupation]"></h3>
+
+  <h3><label>Your Education</label>
+  <input type="text" name="user[education]"></h3>
+
+  <h3><label>More about</label><br>
+  <textarea name="user[about]" rows="8" cols="80"></textarea><br>
+
+  <input type="submit" value="Sign up!">
+
+</form>
+
+<h3><a href="/login">log in</a>.</h3>

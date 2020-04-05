@@ -1,0 +1,42 @@
+<div data-alert class="alert">
+  <%=@problem_message%>
+  <a href="#" class="close">&times;</a>
+</div>
+<h1>Hello, <%= @user.name %></h1>
+
+<h2>This is your Dashboard.</h2><br>
+
+<% if !@user.problems.empty? %>
+  <h3>Your Submitted Problems </h3><br>
+  <% @user.problems.each do |problem| %>
+  <li>
+      <a href="/problems/<%=problem.id%>">
+         "<%= problem.title %>"</a> Reported on: <%= problem.created_at%>
+  </li>
+  <% end %>
+<% else %>
+  <h2>no problems</h2>
+<% end %>
+<br>
+
+<% if !@user.solutions.empty? %>
+  <h3>Your Submitted Proposals </h3><br>
+  <% @user.solutions.each do |solution| %>
+  <li><a href="/solutions/<%=solution.id%>">"<%= solution.name %>"</a> Submited on: Reported on: <%= solution.created_at%></li>
+  <% end %>
+<% else%>
+  <h2>There are No Solution Proposals... Yet</h2>
+<% end %>
+<br>
+<h4><a href="/problems/new">Report a Problem</a></h4>
+
+<li><h4><a href="/problems">All Problems</a></h4></li><br>
+
+<h2>About <%= @user.name %><h2>
+
+  <h3>Location: <%= @user.location %></h3>
+  <h3>Gender: <%= @user.gender %></h3>
+  <h3>Occupation: <%= @user.occupation %></h3>
+  <h3>Education: <%= @user.education %></h3>
+  <h3>More About <%= @user.name %>:<br> <%= @user.about %></h3>
+  <h3>Date Joined: <%= @user.created_at %></h3>

@@ -1,0 +1,9 @@
+<h1>All Solutions</h1>
+
+<ul>
+    <% @solutions.each do |solution| %>
+    <h3><a href="/solutions/<%= solution.id%>">"<%= solution.title%>"</a> by <%= solution.problem.title%></h3>
+    <% end %>
+</ul>
+<br>
+<h3>Back to <a href="/">my dashboard</a></h3>

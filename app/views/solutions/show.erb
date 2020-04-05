@@ -1,0 +1,23 @@
+<div data-alert class="alert">
+  <%=@problem_message%>
+  <a href="#" class="close">&times;</a>
+</div>
+
+<h2>Problem: <a href="/problems/<%= @solution.problem_id%>"><%= @problem.title%></a></h2> Reported on: <%= @solution.created_at%>
+
+    <h3>Proposal Information</h3>
+        Proposal title: <%=@solution.name%><br>
+        Proposal Description: <%=@solution.description%><br>
+        Proposal Submited By: <%=@solution.user.name%><br>
+
+
+
+<% if @solution.user == current_user%>
+<h3>
+    <a href="/solutions/<%=@solution.id%>/edit">Edit</a>
+    <br>
+    <a href="/solutions/<%=@solution.id%>/delete">Delete</a>
+</h3>
+<% end %>
+
+<h3>Back to <a href="/">my dashboard</a></h3>
